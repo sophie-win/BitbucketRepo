@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/sleep_tracker_fragment">
+    <fragment
+        android:id="@+id/sleep_tracker_fragment"
+        android:name="com.sophie.bitbucketrepo.owner.OwnerListFragment"
+        tools:layout="@layout/fragment_owner_list"
+        android:label="@string/owner_list_fragment"/>
+
+</navigation>
