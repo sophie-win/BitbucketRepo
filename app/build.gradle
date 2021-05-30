@@ -81,6 +81,7 @@ dependencies {
 
     //glide for avatar
     implementation "com.github.bumptech.glide:glide:$version_glide"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor "com.github.bumptech.glide:compiler:$version_glide"
 
     testImplementation 'junit:junit:4.12'

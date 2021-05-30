@@ -1,7 +1,7 @@
 package com.sophie.bitbucketrepo
 
 import com.google.gson.Gson
-import com.sophie.bitbucketrepo.json_shema.Root
+import com.sophie.bitbucketrepo.json_schema.Root
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runBlockingTest

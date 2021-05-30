@@ -1,9 +1,8 @@
 package com.sophie.bitbucketrepo
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sophie.bitbucketrepo.json_shema.Root
+import com.sophie.bitbucketrepo.json_schema.Root
 
 class OwnerRepository(private val network: MainNetwork) {
     private var _value = MutableLiveData<Root>()
@@ -14,13 +13,8 @@ class OwnerRepository(private val network: MainNetwork) {
     suspend fun refreshOwners() {
         try {
             val response = network.fetchRepos()
-            Log.e("Hey", response.toString())
             if (response != null) {
                 _value.postValue(response)
-//                val item = response.body()
-//                if (item != null) {
-//                    _value.postValue(item)
-//                }
             } else {
                 RefreshError("Unable to data", Throwable(response.toString()))
             }

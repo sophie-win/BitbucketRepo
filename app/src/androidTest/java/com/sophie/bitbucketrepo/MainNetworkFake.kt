@@ -1,11 +1,10 @@
 package com.sophie.bitbucketrepo
 
-import com.sophie.bitbucketrepo.json_shema.Root
+import com.sophie.bitbucketrepo.json_schema.Root
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
-import java.lang.Exception
 
 class MainNetworkFake(var data: Root): MainNetwork {
 
