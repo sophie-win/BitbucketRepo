@@ -1,45 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/avatar"
-            android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+        <data>
+                <variable
+                    name="value"
+                    type="com.sophie.bitbucketrepo.json_schema.Value" />
+                <variable
+                    name="clickListener"
+                    type="com.sophie.bitbucketrepo.owner.OwnerListener" />
+        </data>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin16dp"
-            android:layout_marginTop="@dimen/margin16dp"
-            android:paddingRight="@dimen/padding8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:onClick="@{() -> clickListener.onClick(value)}">
 
-        <TextView
-            android:id="@+id/display_name_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@id/avatar"
-            app:layout_constraintBottom_toTopOf="@+id/type_text_view"
-            app:layout_constraintTop_toTopOf="@id/avatar"/>
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin16dp"
+                    android:layout_marginTop="@dimen/margin16dp"
+                    android:paddingRight="@dimen/padding8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/type_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@id/avatar"
-            app:layout_constraintBottom_toTopOf="@+id/date_text_view"
-            app:layout_constraintTop_toBottomOf="@+id/display_name_text_view"/>
+                <TextView
+                    android:id="@+id/display_name_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{value.owner.display_name}"
+                    app:layout_constraintStart_toEndOf="@id/avatar"
+                    app:layout_constraintBottom_toTopOf="@+id/type_text_view"
+                    app:layout_constraintTop_toTopOf="@id/avatar"
+                    tools:text="display name"/>
 
-        <TextView
-            android:id="@+id/date_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@id/avatar"
-            app:layout_constraintBottom_toBottomOf="@id/avatar"
-            app:layout_constraintTop_toBottomOf="@+id/type_text_view"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/type_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{value.owner.type}"
+                    app:layout_constraintStart_toEndOf="@id/avatar"
+                    app:layout_constraintBottom_toTopOf="@+id/date_text_view"
+                    app:layout_constraintTop_toBottomOf="@+id/display_name_text_view"
+                    tools:text="user type"/>
+
+                <TextView
+                    android:id="@+id/date_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{value.created_on.toString()}"
+                    app:layout_constraintStart_toEndOf="@id/avatar"
+                    app:layout_constraintBottom_toBottomOf="@id/avatar"
+                    app:layout_constraintTop_toBottomOf="@+id/type_text_view"
+                    tools:text="Date"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

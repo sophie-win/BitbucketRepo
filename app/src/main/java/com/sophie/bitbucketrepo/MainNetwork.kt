@@ -1,8 +1,7 @@
 package com.sophie.bitbucketrepo
 
-import com.sophie.bitbucketrepo.json_shema.Root
+import com.sophie.bitbucketrepo.json_schema.Root
 import okhttp3.OkHttpClient
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET

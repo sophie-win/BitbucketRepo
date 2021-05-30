@@ -1,4 +1,4 @@
-package com.sophie.bitbucketrepo.json_shema
+package com.sophie.bitbucketrepo.json_schema
 
 class Branches {
     var href: String? = null

@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.sophie.bitbucketrepo.*
 import com.sophie.bitbucketrepo.databinding.FragmentOwnerListBinding
-import com.sophie.bitbucketrepo.json_shema.Root
+import com.sophie.bitbucketrepo.json_schema.Root
+import timber.log.Timber
 
 class OwnerListFragment : Fragment() {
 
@@ -50,7 +52,10 @@ class OwnerListFragment : Fragment() {
 
         ownerViewModel.refreshOwner()
 
-        adapter = OwnerAdapter(this.requireContext())
+        adapter = OwnerAdapter(this.requireContext(), OwnerListener {
+            uID -> Timber.i("userId $uID")
+            Toast.makeText(context, "${uID}", Toast.LENGTH_LONG).show()
+        })
         binding.ownerList.adapter = adapter
     }
 
